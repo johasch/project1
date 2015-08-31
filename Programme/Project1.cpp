@@ -34,9 +34,11 @@ with boundary conditions: u(0)=u(1)=0
 */
 int main(){
 	int n;
-	n=100;
+	cout << "How many Grindpoint do you want to have?"<<endl;
+	cin >> n;
 	double h;
 	double a[n+1],b[n+1],c[n+1],x[n+1],v[n+1],btilde[n+1];	
+	
 	h=1.0/(n+1);
 	for(int i=0;i<1+n;i++){ //filling up the vektors with the right number to solve the given linear sets of equation
 		a[i]=-1;
