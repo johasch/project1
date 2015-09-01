@@ -76,6 +76,7 @@ int main(){
 	}
 	Zieldatei.close();
 	system("start gnuplot plot1.txt");
+	//dd
 	
 }
 
