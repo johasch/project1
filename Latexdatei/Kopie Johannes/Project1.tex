@@ -17,8 +17,20 @@
 \tableofcontents
 \newpage
 \section{Introduction to Project 1}
-
-
+In physics, we often have to deal with differential equations o second order, which can be generally written in the from
+\begin{equation}
+\frac{d^{2}y}{dx1{2}}+k^2(x)y=f(x)\quad,
+\end{equation}
+where we call $f$ the inhomgeneous term and $k^2(x)$ is a real function. A special case of these cases is Poisson's equation, which reads in the one-dimensional, spherical case
+\begin{equation}
+\frac{1}{r^2}\frac{d}{dr}\left(r^2\frac{d\Phi}{dr}\right)=-4\pi\rho\left(\vec{r}\right)\quad.
+\end{equation}
+Doing some substitutions, we can write this in the following, more general form:
+\begin{equation}
+\label{diff}
+-u''(x)=f(x)
+\end{equation}
+In this project, we try to solve eq.\eqref{diff} numerical. Therefore, we have to discretize $f$ and $u''$. We approximate $u(x)$ as $v_i$, using a grid of $n$ gridpoints $x_i=i\cdot h$. $h$ is our
 
 \begin{equation}
     {\bf A} = \left(\begin{array}{cccccc}
