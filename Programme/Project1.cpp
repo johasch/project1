@@ -4,6 +4,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <cstring>
+#include <time.h>
 
 /*
 Some of the comments are missing. I will comment on more steps later. You need Gnuplot to create the plotfile. 
@@ -32,11 +33,18 @@ with boundary conditions: u(0)=u(1)=0
 
 
 */
+
+double u(double z){
+	return(1-(1-exp(-10))*(z)-exp(-10*z));
+}
+
 int main(){
 	int n;
 	n=100;
 	cout << "How many Grindpoint do you want to have?"<<endl;
 	cin >> n;
+	clock_t start, finish;  //  declare start and final time
+    start = clock();
 	double h;
 	double a[n+1],b[n+1],c[n+1],x[n+1],v[n+1],btilde[n+1];	
 	
@@ -67,7 +75,7 @@ int main(){
 	}
 	// normalization of the Koeficient (be careful, btilde is from now an not the original btilde, but 
 	ofstream Zieldatei("Daten.txt");
-	for(int i=1;i<n;i++){
+	for(int i=0;i<n+1;i++){
 		btilde[i]=btilde[i]/b[i];
 		/*cout << x[i]<< "  "<< btilde[i]<<endl;
 		cout << x[i]<<"  "<< 1-(1-exp(-10))*(h*i)-exp(-10*h*i)<<endl;
@@ -75,8 +83,25 @@ int main(){
 		Zieldatei << x[i]<<"  "<<btilde[i]<<"  "<<1-(1-exp(-10))*(h*i)-exp(-10*h*i)<<endl;
 	}
 	Zieldatei.close();
+	finish = clock();
+    ( (finish - start)/CLOCKS_PER_SEC );
 	system("start gnuplot plot1.txt");
-	//dd
+	
+	// Part c) of the Project 1
+	double epsilon[n+1];
+	double maximum=0;
+	
+	// calculate the relative errors and find the maximum of all the points
+	for(int i=1;i<n+1;i++){
+		epsilon[i]=log(abs((btilde[i]-u(i*h))/u(i*h)));
+		if(epsilon[i]>maximum){
+			maximum=epsilon[i];
+		}
+	}
+	//write the maximum of the relative error in a text-file
+	ofstream Zieldatei1("maximumrelativeerror_grid_n.txt");
+	Zieldatei1<<"Gridpoints  "<<"epsilonmax"<<endl<<n<<"  "<<maximum;
+	Zieldatei1.close();
 	
 }
 

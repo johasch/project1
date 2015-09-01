@@ -1,0 +1,2 @@
+Gridpoints  epsilonmax
+100    0.0886451
