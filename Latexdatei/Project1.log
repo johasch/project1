@@ -1,9 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.12.26)  28 AUG 2015 10:16
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.12.26)  28 AUG 2015 10:30
 entering extended mode
 **Project1.tex
-
-("C:\_user\Lukas\Uni\5_Auslandssemester Oslo (EM,QM, CP,NORWAY)\Computational P
-hysics\Project1\Project1.tex"
+(C:\Users\Lukas\Documents\GitHub\project1\Latexdatei\Project1.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -708,8 +706,7 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@dimlist=\toks22
 
 ("C:\Program Files\Miktex\tex\latex\geometry\geometry.cfg"))
-("C:\_user\Lukas\Uni\5_Auslandssemester Oslo (EM,QM, CP,NORWAY)\Computational P
-hysics\Project1\Project1.aux")
+(C:\Users\Lukas\Documents\GitHub\project1\Latexdatei\Project1.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
@@ -839,29 +836,47 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 17.
 
-("C:\_user\Lukas\Uni\5_Auslandssemester Oslo (EM,QM, CP,NORWAY)\Computational P
-hysics\Project1\Project1.toc"
+(C:\Users\Lukas\Documents\GitHub\project1\Latexdatei\Project1.toc
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 2.
 )
 \tf@toc=\write3
- [2] [3]
-("C:\_user\Lukas\Uni\5_Auslandssemester Oslo (EM,QM, CP,NORWAY)\Computational P
-hysics\Project1\Project1.aux") ) 
+ [2]
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 23.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 23.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 23.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 23.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 23.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 23.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <7.6> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 24.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <6> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 24.
+ [3]
+(C:\Users\Lukas\Documents\GitHub\project1\Latexdatei\Project1.aux) ) 
 Here is how much of TeX's memory you used:
- 4076 strings out of 493921
- 51421 string characters out of 3148885
- 104092 words of memory out of 3000000
- 7277 multiletter control sequences out of 15000+200000
- 50236 words of font info for 54 fonts, out of 3000000 for 9000
+ 4115 strings out of 493921
+ 51555 string characters out of 3148885
+ 111092 words of memory out of 3000000
+ 7304 multiletter control sequences out of 15000+200000
+ 80230 words of font info for 91 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 28i,6n,24p,253b,200s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/Miktex/fonts/enc/dvips/fontna
-me/8r.enc}<C:/Program Files/Miktex/fonts/type1/adobe/utopia/putb8a.pfb><C:/Prog
-ram Files/Miktex/fonts/type1/adobe/utopia/putr8a.pfb>
-Output written on Project1.pdf (3 pages, 31489 bytes).
+ 28i,8n,24p,253b,200s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program
+ Files/Miktex/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/Miktex/fonts/ty
+pe1/public/fourier/fourier-mex.pfb><C:/Program Files/Miktex/fonts/type1/public/
+fourier/fourier-ms.pfb><C:/Program Files/Miktex/fonts/type1/adobe/utopia/putb8a
+.pfb><C:/Program Files/Miktex/fonts/type1/adobe/utopia/putr8a.pfb><C:/Program F
+iles/Miktex/fonts/type1/adobe/utopia/putri8a.pfb>
+Output written on Project1.pdf (3 pages, 49154 bytes).
 PDF statistics:
- 21 PDF objects out of 1000 (max. 8388607)
+ 33 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -34,10 +34,12 @@ with boundary conditions: u(0)=u(1)=0
 */
 int main(){
 	int n;
+	n=100;
 	cout << "How many Grindpoint do you want to have?"<<endl;
 	cin >> n;
 	double h;
 	double a[n+1],b[n+1],c[n+1],x[n+1],v[n+1],btilde[n+1];	
+	
 	
 	h=1.0/(n+1);
 	for(int i=0;i<1+n;i++){ //filling up the vektors with the right number to solve the given linear sets of equation
@@ -56,21 +58,20 @@ int main(){
 	for(int i=0;i<n+1;i++){
 		b[i+1]=b[i+1]-c[i]*(a[i+1]/b[i]);
 		btilde[i+1]+=-(a[i+1]/b[i])*btilde[i];
-		//cout << btilde[i+1]<<endl;
 	}
+	// clear storage
+
 	//second
 	for(int i=n;i>0;i--){
 		btilde[i-1]+=-btilde[i]*(c[i-1]/b[i]);
 	}
-	
 	// normalization of the Koeficient (be careful, btilde is from now an not the original btilde, but 
 	ofstream Zieldatei("Daten.txt");
 	for(int i=1;i<n;i++){
 		btilde[i]=btilde[i]/b[i];
-		b[i]=1;
-		cout << x[i]<< "  "<< btilde[i]<<endl;
+		/*cout << x[i]<< "  "<< btilde[i]<<endl;
 		cout << x[i]<<"  "<< 1-(1-exp(-10))*(h*i)-exp(-10*h*i)<<endl;
-		cout << endl;
+		cout << endl;*/
 		Zieldatei << x[i]<<"  "<<btilde[i]<<"  "<<1-(1-exp(-10))*(h*i)-exp(-10*h*i)<<endl;
 	}
 	Zieldatei.close();
@@ -78,14 +79,3 @@ int main(){
 	
 }
 
-/*
-not important
-
-double g(double b){
-	return(1-(1-exp(-10))*b-exp(-10*b));
-}
-
-double f(double a){
-	return(100*exp(-10*a));
-}
-*/
