@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.8.30)  2 SEP 2015 10:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.8.30)  2 SEP 2015 11:28
 entering extended mode
 **Project1.tex
 (Project1.tex
@@ -843,21 +843,21 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 )
 \tf@toc=\write3
  [2]
-LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 69.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <7.6> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 77.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 26.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <6> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 77.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 26.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 40.
  [3] (Project1.aux) ) 
 Here is how much of TeX's memory you used:
- 4155 strings out of 493698
- 52251 string characters out of 3144403
- 118575 words of memory out of 3000000
- 7373 multiletter control sequences out of 15000+200000
+ 4157 strings out of 493698
+ 52267 string characters out of 3144403
+ 121591 words of memory out of 3000000
+ 7375 multiletter control sequences out of 15000+200000
  84760 words of font info for 94 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 28i,9n,24p,374b,198s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 28i,9n,24p,408b,198s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.e
 nc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/fourier/fourier-mex.pfb><C:/
 Program Files/MiKTeX 2.9/fonts/type1/public/fourier/fourier-ml.pfb><C:/Program 
@@ -866,7 +866,7 @@ MiKTeX 2.9/fonts/type1/public/fourier/fourier-ms.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/adobe/utopia/putb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /adobe/utopia/putr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/adobe/utopia/
 putri8a.pfb>
-Output written on Project1.pdf (3 pages, 60987 bytes).
+Output written on Project1.pdf (3 pages, 65349 bytes).
 PDF statistics:
  41 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -23,55 +23,27 @@ In physics, we often have to deal with differential equations o second order, wh
 \end{equation}
 where we call $f$ the inhomgeneous term and $k^2(x)$ is a real function. A special case of these cases is Poisson's equation, which reads in the one-dimensional, spherical case
 \begin{equation}
-	\frac{1}{r^2}\frac{d}{dr}\left(r^2\frac{d\Phi}{dr}\right)=-4\pi\rho\left(\vec{r}\right)\quad.
+	\frac{1}{r^2}\frac{d}{dr}\left(r^2\frac{d\Phi}{dr}\right)=-4\pi\rho\left(\mathbf{r}\right)\quad.
 \end{equation}
 Doing some substitutions, we can write this in the following, more general form:
 \begin{equation}
 	\label{diff}
 	-u''(x)=f(x)
 \end{equation}
-In this project, we try to solve eq.\eqref{diff} with the boundary conditions $u(0)=u(1)=0$. Therefore, we have to discretize $f$ and $u$. We approximate $u(x)$ as $v_i$, using a grid of $n$ gridpoints $x_i=i\cdot h$. Thus, $h=1/(n+1)$ is our steplength. We will also write $f_i=f(x_i)=f(hi)$. Approximating the second derivative of $u$, we get
+In this project, we try to solve eq.\eqref{diff} with the boundary conditions $u(0)=u(1)=0$. Therefore, we have to discretize $f$ and $u$. We approximate $u(x)$ as $v_i$, using a grid of $n$ gridpoints $x_i=i\cdot h$. Thus, $h=1/(n+1)$ is our steplength. We will also write $f_i=f(x_i)=f(hi)$.\\Approximating the second derivative of $u$, we get
 \begin{equation}
 	\label{num}
 	-\frac{v_{i+1}+v_{i-1}-2v_i}{h^2}=f_i
 \end{equation}
-Our goal is to solve this equation \eqref{num}.
+Our goal is to solve this equation \eqref{num}. Therefore, we will rewrite it as a set of linear equations in matrix form.
 
-
-
-%
-%\begin{equation}
-%    {\bf A} = \left(\begin{array}{cccccc}
-%                           b_1& c_1 & 0 &\dots   & \dots &\dots \\
-%                           a_2 & b_2 & c_2 &\dots &\dots &\dots \\
-%                           & a_3 & b_3 & c_3 & \dots & \dots \\
-%                           & \dots   & \dots &\dots   &\dots & \dots \\
-%                           &   &  &a_{n-2}  &b_{n-1}& c_{n-1} \\
-%                           &    &  &   &a_n & b_n \\
-%                      \end{array} \right)\left(\begin{array}{c}
-%                           v_1\\
-%                           v_2\\
-%                           \dots \\
-%                          \dots  \\
-%                          \dots \\
-%                           v_n\\
-%                      \end{array} \right)
-%  =\left(\begin{array}{c}
-%                           \tilde{b}_1\\
-%                           \tilde{b}_2\\
-%                           \dots \\
-%                           \dots \\
-%                          \dots \\
-%                           \tilde{b}_n\\
-%                      \end{array} \right).
-%\end{equation}
-
-\subsection{Rewrite the set of equations in matrix-form}
+\subsection{Rewriting the equation in matrix-form}
 Eq \eqref{num} can be written as a set of linear equations in matrix form. Therefore, we have to do the following steps:
 \begin{align}
 	-\frac{v_{i+1}+v_{i-1}-2v_i}{h^2}&=f_i\nonumber\\
-	-\left(v_{i+1}+v_{i-1}-2v_i\right)&=h^2\cdot f_i\\
+	\label{vorform}-\left(v_{i+1}+v_{i-1}-2v_i\right)&=h^2\cdot f_i\\
 \end{align}
+Assuming we have an $n\times n$-matrix $\mathbf A$ of the following form
 
 \begin{equation}
 {\bf A} = \left(\begin{array}{cccccc}
@@ -81,6 +53,24 @@ Eq \eqref{num} can be written as a set of linear equations in matrix form. There
 & \dots   & \dots &\dots   &\dots & \dots \\
 0&\dots   &\dots  &-1 &2& -1 \\
 0&\dots    &\dots  & 0  &-1 & 2 \\
-\end{array} \right)
+\end{array} \right)\quad,
 \end{equation}
+then we can rewrite this matrix in index notation as
+\begin{equation}
+\label{index}
+	a_{ij}=\begin{cases}
+		2&\mbox{if }i=j\\
+		-1&\mbox{if  }|i-j|=1\\
+		0&\mbox{else}
+	\end{cases}\quad.
+\end{equation}
+Using this, we can also rewrite the multiplication $\mathbf{w}=\mathbf{A}\cdot\mathbf{v}$ with an $n$-dimensional vector $\mathbf v$ in the following way:
+\begin{equation}
+	w_i\quad\underset{\mathrm{def}}{=}\quad\sum_{j=1}^{n}a_{ij}\cdot v_j\quad\underset{\eqref{index}}{=}\quad -v_{i-1}+2v_i-v_{i+1}
+\end{equation}
+By using this result and substituting $h^2\cdot f_i\rightarrow\bar{b}$ in eq \eqref{vorform}, we get to the following equation:
+\begin{equation}
+	\mathbf{Av}=\bar{\mathbf{b}}
+\end{equation}
+with matrix $\mathbf{A}$ as given above. This is a set of linear equations that we are going to solve with our programm. In this example, we will assume that $f(x)$ is given by $f(x)=100\mathrm{e}^{-10x}$. Thus, the analytical solution of eq \eqref{diff} is given by $u(x)=1-(1-\mathrm{e}^{-10})x-\mathrm{e}^{-10x}$. We will later compare our numerical results to this solution.
 \end{document}
