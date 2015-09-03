@@ -34,19 +34,21 @@ with boundary conditions: u(0)=u(1)=0
 
 */
 
-double u(double z){
+inline double u(double z){
 	return(1-(1-exp(-10))*(z)-exp(-10*z));
 }
 
+
+
 int main(){
 	int n;
-	n=100;
 	cout << "How many Grindpoint do you want to have?"<<endl;
 	cin >> n;
 	clock_t start, finish;  //  declare start and final time
     start = clock();
 	double h;
-	double a[n+1],b[n+1],c[n+1],x[n+1],v[n+1],btilde[n+1];	
+	double b[n+1],c[n+1],a[n+1],x[n+1],v[n+1],btilde[n+1];	
+	//double *a= new double[n+1];
 	
 	
 	h=1.0/(n+1);
@@ -84,7 +86,8 @@ int main(){
 	}
 	Zieldatei.close();
 	finish = clock();
-    ( (finish - start)/CLOCKS_PER_SEC );
+    cout<<double ( (finish - start)/(double)CLOCKS_PER_SEC )<<endl;
+    
 	system("start gnuplot plot1.txt");
 	
 	// Part c) of the Project 1
