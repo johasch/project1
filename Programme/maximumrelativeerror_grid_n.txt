@@ -1,2 +1,2 @@
 Gridpoints  epsilonmax
-10000  0.000910848
+1000  0.0090854
