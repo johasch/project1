@@ -6,4 +6,4 @@
 \contentsline {subsection}{\numberline {2.2}Gaussian elemination}{4}
 \contentsline {subsection}{\numberline {2.3}LU-decomposition}{4}
 \contentsline {section}{\numberline {3}Resuluts and discussion of the self-programmed algorithm}{4}
-\contentsline {section}{\numberline {4}Comparison of self-programmed algorithm, Gaussian elemination and LU Decomposition }{4}
+\contentsline {section}{\numberline {4}Comparison of self-programmed algorithm, Gaussian elemination and LU Decomposition }{5}
