@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.12.26)  4 SEP 2015 10:11
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.12.26)  10 SEP 2015 16:38
 entering extended mode
 **Project1.tex
 (C:\Users\Lukas\Documents\GitHub\project1\Latexdatei\Lukas\Project1.tex
@@ -862,26 +862,46 @@ LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <6> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 26.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 40.
- [3] (C:\Users\Lukas\Documents\GitHub\project1\Latexdatei\Lukas\Project1.aux) )
- 
+ [3]
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--108
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 109--111
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--122
+
+ []
+
+[4] (C:\Users\Lukas\Documents\GitHub\project1\Latexdatei\Lukas\Project1.aux) ) 
 Here is how much of TeX's memory you used:
  4057 strings out of 493921
  50840 string characters out of 3148885
- 113038 words of memory out of 3000000
+ 114038 words of memory out of 3000000
  7245 multiletter control sequences out of 15000+200000
  84760 words of font info for 94 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  28i,9n,24p,408b,198s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/Miktex/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/Mikt
-ex/fonts/type1/public/fourier/fourier-mex.pfb><C:/Program Files/Miktex/fonts/ty
-pe1/public/fourier/fourier-ml.pfb><C:/Program Files/Miktex/fonts/type1/public/f
-ourier/fourier-mlit.pfb><C:/Program Files/Miktex/fonts/type1/public/fourier/fou
-rier-ms.pfb><C:/Program Files/Miktex/fonts/type1/adobe/utopia/putb8a.pfb><C:/Pr
-ogram Files/Miktex/fonts/type1/adobe/utopia/putr8a.pfb><C:/Program Files/Miktex
-/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on Project1.pdf (3 pages, 65348 bytes).
+{
+C:/Program Files/Miktex/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/Mikte
+x/fonts/type1/public/fourier/fourier-mex.pfb><C:/Program Files/Miktex/fonts/typ
+e1/public/fourier/fourier-ml.pfb><C:/Program Files/Miktex/fonts/type1/public/fo
+urier/fourier-mlit.pfb><C:/Program Files/Miktex/fonts/type1/public/fourier/four
+ier-ms.pfb><C:/Program Files/Miktex/fonts/type1/adobe/utopia/putb8a.pfb><C:/Pro
+gram Files/Miktex/fonts/type1/adobe/utopia/putr8a.pfb><C:/Program Files/Miktex/
+fonts/type1/adobe/utopia/putri8a.pfb>
+Output written on Project1.pdf (4 pages, 71514 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
+ 44 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

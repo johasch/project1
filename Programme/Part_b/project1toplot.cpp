@@ -79,20 +79,15 @@ int main(){
 		b[i+1]=b[i+1]-c[i]*(a[i+1]/b[i]);
 		btilde[i+1]+=-(a[i+1]/b[i])*btilde[i];
 	}
-	// clear storage
 	//second
-
-
 	for(int i=n;i>0;i--){
 		btilde[i-1]+=-btilde[i]*(c[i-1]/b[i]);
 	}
-	// normalization of the Koeficient (be careful, btilde is from now an not the original btilde, but 
-
-
+	//normalization
 
 	ofstream Zieldatei("Daten.txt");
 	for(int i=0;i<n+1;i++){
-		btilde[i]=btilde[i]/b[i];
+		btilde[i]=btilde[i]/b[i];	// normalization of the Koeficient (be careful, btilde is from now an not the original btilde)
 		Zieldatei << x[i]<<"  "<<btilde[i]<<"  "<<1-(1-exp(-10))*(h*i)-exp(-10*h*i)<<endl;
 	}
 	Zieldatei.close();
