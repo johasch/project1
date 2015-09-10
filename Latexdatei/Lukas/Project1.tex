@@ -8,10 +8,17 @@
 \usepackage{makeidx}
 \usepackage{graphicx}
 \usepackage{fourier}
+\usepackage{listings}
+\usepackage{color}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \author{Johannes Scheller, Vincent Noculak Lukas Powalla}
 \title{Computational Physics - Project 1}
 \begin{document}
+\lstset{language=C++,
+	keywordstyle=\bfseries\color{blue},
+	commentstyle=\itshape\color{red},
+	stringstyle=\color{green},
+	frame=single}
 \maketitle
 \newpage
 \tableofcontents
@@ -70,7 +77,69 @@ Using this, we can also rewrite the multiplication $\mathbf{w}=\mathbf{A}\cdot\m
 \end{equation}
 By using this result and substituting $h^2\cdot f_i\rightarrow\bar{b}$ in eq \eqref{vorform}, we get to the following equation:
 \begin{equation}
-	\mathbf{Av}=\bar{\mathbf{b}}
+	\mathbf{A \cdot v}=\bar{\mathbf{b}}
 \end{equation}
 with matrix $\mathbf{A}$ as given above. This is a set of linear equations that we are going to solve with our programm. In this example, we will assume that $f(x)$ is given by $f(x)=100\mathrm{e}^{-10x}$. Thus, the analytical solution of eq \eqref{diff} is given by $u(x)=1-(1-\mathrm{e}^{-10})x-\mathrm{e}^{-10x}$. We will later compare our numerical results to this solution.
+
+\section{Different algorithm to solve this set of linear equations}
+
+In this chapter, We want to solve the given set of linear equations first by solving it with a self-programmed algorhithm. Furthermore, we want to compare the produced numerical solution to the exact solution and calculate the maximum relative error for a given number of Gridpoints. 
+In order to know, whether our algorithm is best to solve this set of linear equations, we want to compare this algorhith with LU-decomposition and Gaussian algorhitm with respect to the floating point operations and the calculation time. 
+
+\subsection{self-programmed algorithm }
+
+As we have shown in the previous capture, you can rewrite the set of linear equations as product of a matrix and a vector:
+\begin{equation}
+	\mathbf{A \cdot v}=\bar{\mathbf{b}}
+\end{equation}
+In this case, the matrix A is a tridiagonal matrix. This means, that it is possible to interpret this matrix as 3 vectors because all other components of the matrix are zero and will stay zero. This gives us the advantage that we don't have to deal with 2-dimensional Arrays and we can dump the number of floating operations (compared to LU-decomposition/Gaussian-algorithm)
+
+The programmed algorithm will work in the following way. First, we want to reach a upper diagonal matrix by vector-additions/subtractions. Second, We want to bring the matrix to a diagonal form and at last, we scale the solution vector. The first two steps also effekt the solutionvector (in our case btilde[] ). We programmed following souce-code (extract):
+
+extract of the used algorithm((12 floating operations):
+\begin{lstlisting}
+//first
+for(int i=0;i<n+1;i++){
+	b[i+1]=b[i+1]-c[i]*(a[i+1]/b[i]);
+	btilde[i+1]+=-(a[i+1]/b[i])*btilde[i];
+}
+//second
+for(int i=n;i>0;i--){
+	btilde[i-1]+=-btilde[i]*(c[i-1]/b[i]);
+}
+//normalization
+for(int i=0;i<n+1;i++){
+	btilde[i]=btilde[i]/b[i];
+}
+\end{lstlisting}
+	
+	
+As you can see, we use at the moment 12n floating point operations for the mainalgorithm. If we look closer at the algorithm, we will see that you can simplify a lot by skipping unnecessary arithmetic operations. 
+We managed to get to 6 Floating point operations:
+\begin{lstlisting}
+//first
+for(int i=0;i<n+1;i++){
+	b[i+1]=b[i+1]-1/b[i];
+	btilde[i+1]=btilde[i+1]+btilde[i]/b[i];
+}
+//second
+for(int i=n;i>0;i--){
+	btilde[i-1]=(btilde[i-1]+btilde[i])/b[i];	
+}
+\end{lstlisting}
+	
+\subsection{Gaussian elemination}
+
+
+\subsection{LU-decomposition}
+
+\section{Resuluts and discussion of the self-programmed algorithm}
+
+discussion... errors...plots... gerneral things about why things appear.. 
+
+\section{Comparison of self-programmed algorithm, Gaussian elemination and LU Decomposition }
+
+
+
+
 \end{document}
