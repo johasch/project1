@@ -61,7 +61,7 @@ int main(){
 
 
 
-	for(int i=0;i<n+1;i++){ //filling up the vektors with the right number to solve the given linear sets of equation
+	for(int i=0;i<n+2;i++){ //filling up the vektors with the right number to solve the given linear sets of equation
 	  		a[i]=-1.0;
 	  	b[i]=2.0;
 	        c[i]=-1.0;
@@ -77,16 +77,16 @@ int main(){
 	//first
 	for(int i=0;i<n+1;i++){
 		b[i+1]=b[i+1]-c[i]*(a[i+1]/b[i]);
-		btilde[i+1]+=-(a[i+1]/b[i])*btilde[i];
+		btilde[i+1]= btilde[i+1]-btilde[i]*(a[i+1]/b[i]);
 	}
 	//second
-	for(int i=n;i>0;i--){
+	for(int i=n+1;i>0;i--){
 		btilde[i-1]+=-btilde[i]*(c[i-1]/b[i]);
 	}
 	//normalization
 
 	ofstream Zieldatei("Daten.txt");
-	for(int i=0;i<n+1;i++){
+	for(int i=1;i<n+1;i++){
 		btilde[i]=btilde[i]/b[i];	// normalization of the Koeficient (be careful, btilde is from now an not the original btilde)
 		Zieldatei << x[i]<<"  "<<btilde[i]<<"  "<<1-(1-exp(-10))*(h*i)-exp(-10*h*i)<<endl;
 	}

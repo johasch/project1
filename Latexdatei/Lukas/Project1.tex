@@ -122,7 +122,7 @@ for(int i=0;i<n+1;i++){
 	b[i+1]=b[i+1]-1/b[i];
 	btilde[i+1]=btilde[i+1]+btilde[i]/b[i];
 }
-//second
+//second and normalization
 for(int i=n;i>0;i--){
 	btilde[i-1]=(btilde[i-1]+btilde[i])/b[i];	
 }
@@ -135,7 +135,45 @@ for(int i=n;i>0;i--){
 
 \section{Resuluts and discussion of the self-programmed algorithm}
 
-discussion... errors...plots... gerneral things about why things appear.. 
+We solved the linear set of equation with a different number of Gridpoints. This means, that we discretise the used funktions and approximated them with n Gridpoints. If you take a closer look at the given solutions produced with our algorithm, you will notice that the numerical approximation seems to converge to the exact solution. (for n=10...$10^5$) In the figure \ref{Comparison10}, you can see the numerical solution for 10 Gridpoints. The numerical approximation doesn't fit very well with the exact solution, however the boundary conditions seem to be fullfilled. We run our programm with diferend numer of Gridpoints. The figure with 100 Gridpoints you can find in figure \ref{Comparison100}, the figure with 1000 Gridpoints you can find in \ref{Comparison1000} and the figure with $10^5$ Gridpoints you can find in figure \ref{Comparison100000}. 
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Comparisonplot10.png}
+\caption{Plot of the exact solution and the numerical solution for 10 Gridpoints}
+\label{Comparison10}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Comparisonplot100.png}
+\caption{Plot of the exact solution and the numerical solution for 100 Gridpoints}
+\label{Comparison100}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Comparisonplot1000.png}
+\caption{Plot of the exact solution and the numerical solution for 1000 Gridpoints}
+\label{Comparison1000}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Comparisonplot100000.png}
+\caption{Plot of the exact solution and the numerical solution for 100000 Gridpoints}
+\label{Comparison100000}
+\end{figure}
+
+In the next step, we want to compare our results with exact solution. Therefore, we estimated the relative error for different step length. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{epsilon_plot_log.pdf}
+\caption{The epsilon is the maximum of the Epsilonerror for given Number of Gridpoints n (and Steplenght h) }
+\label{linear plot}
+\end{figure}
 
 \section{Comparison of self-programmed algorithm, Gaussian elemination and LU Decomposition }
 

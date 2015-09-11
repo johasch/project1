@@ -77,7 +77,7 @@ int main(){
 
 	//first
 	for(int i=0;i<n+1;i++){
-		b[i+1]=b[i+1]-1/b[i];
+		b[i+1]=2-1/b[i];
 		btilde[i+1]=btilde[i+1]+btilde[i]/b[i];
 	}
 	//second
