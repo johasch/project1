@@ -63,11 +63,9 @@ int main(){
 
 
 
-	for(int i=0;i<n+1;i++){ //filling up the vektors with the right number to solve the given linear sets of equation
-	  		a[i]=-1.0;
+	for(int i=0;i<n;i++){ //filling up the vektors with the right number to solve the given linear sets of equation
 	  	b[i]=2.0;
-	        c[i]=-1.0;
-		 x[i]=i*h;
+		x[i]=(i+1)*h;
 		btilde[i]=h*h*(100.0*exp(-10.0*x[i]));
 	}
 	// solving equations through kind of gaussian algorhithm, first elemination of the under-part of the thriangle (aim is a[i]=0 for i=1...n) , 
@@ -77,25 +75,20 @@ int main(){
 
 
 	//first
-	for(int i=0;i<n+1;i++){
-		b[i+1]=b[i+1]-c[i]*(a[i+1]/b[i]);
-		btilde[i+1]+=-(a[i+1]/b[i])*btilde[i];
+	for(int i=0;i<n;i++){
+		b[i+1]=2-1/b[i];
+		btilde[i+1]= btilde[i+1]+btilde[i]/b[i];
 	}
-	// clear storage
 	//second
-
-
-	for(int i=n;i>0;i--){
-		btilde[i-1]+=-btilde[i]*(c[i-1]/b[i]);
+	for(int i=n-1;i>0;i--){
+		btilde[i-1]=btilde[i-1]+btilde[i]/b[i];
 	}
-	// normalization of the Koeficient (be careful, btilde is from now an not the original btilde, but 
-
-
+	//normalization
 
 	ofstream Zieldatei("Daten.txt");
-	for(int i=0;i<n+1;i++){
-		btilde[i]=btilde[i]/b[i];
-		Zieldatei << x[i]<<"  "<<btilde[i]<<"  "<<1-(1-exp(-10))*(h*i)-exp(-10*h*i)<<endl;
+	for(int i=0;i<n;i++){
+		btilde[i]=btilde[i]/b[i];	// normalization of the Koeficient (be careful, btilde is from now an not the original btilde)
+		Zieldatei << x[i]<<"  "<<btilde[i]<<"  "<<1-(1-exp(-10))*(h*(i+1))-exp(-10*h*(i+1))<<endl;
 	}
 	Zieldatei.close();
 	finish = clock();
@@ -103,12 +96,12 @@ int main(){
     //system("start gnuplot plot1.txt");
 
 	// Part c) of the Project 1
-	double *epsilon = new double[n+1];
+	double *epsilon = new double[n];
 	double maximum=0;
 	
 	// calculate the relative errors and find the maximum of all the points
-	for(int i=1;i<n+1;i++){
-		epsilon[i]=log(abs((btilde[i]-u(i*h))/u(i*h)));
+	for(int i=1;i<n;i++){
+		epsilon[i]=abs((btilde[i]-u((i+1)*h))/u((i+1)*h));
 		if(epsilon[i]>maximum){
 			maximum=epsilon[i];
 		}
@@ -116,7 +109,11 @@ int main(){
 	//write the maximum of the relative error in a text-file
 	
 	ofstream Zieldatei1("maximumrelativeerror_grid_n.txt", ios::app);
-	Zieldatei1<<endl<<log(h)<<"  "<<log(maximum); //Gridpoints  "<<"epsilonmax"<<endl<<n<<"  "<<maximum;
+	Zieldatei1<<endl<<n<<"  "<<maximum<<"  "; //Gridpoints  "<<"epsilonmax"<<endl<<n<<"  "<<maximum;
+	Zieldatei1.close();
+	
+	ofstream Zieldatei1("toplot.txt", ios::app);
+	Zieldatei1<<endl<<log(h)<<"  "<<log(maximum)<<"  "<<double ( (finish - start)/(double)CLOCKS_PER_SEC ); //Gridpoints  "<<"epsilonmax"<<endl<<n<<"  "<<maximum;
 	Zieldatei1.close();
 	delete [] a, b, c, x, v, btilde,epsilon;
 	}

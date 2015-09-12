@@ -49,23 +49,23 @@ int main(){
 	clock_t start, finish;  //  declare start and final time
         start = clock();
 	double h;
-        double *b = new double[n+2];
-        double *c = new double[n+2];
-        double *a = new double[n+2];
-        double *x = new double[n+2];
-        double *v = new double[n+2];
-        double *btilde = new double[n+2];
+        double *b = new double[n];
+        double *c = new double[n];
+        double *a = new double[n];
+        double *x = new double[n];
+        double *v = new double[n];
+        double *btilde = new double[n];
 	
 	
 	h=1.0/(n+1);
 
 
 
-	for(int i=0;i<n+2;i++){ //filling up the vektors with the right number to solve the given linear sets of equation
+	for(int i=0;i<n;i++){ //filling up the vektors with the right number to solve the given linear sets of equation
 	  		a[i]=-1.0;
 	  	b[i]=2.0;
 	        c[i]=-1.0;
-		 x[i]=i*h;
+		 x[i]=(i+1)*h;
 		btilde[i]=h*h*(100.0*exp(-10.0*x[i]));
 	}
 	// solving equations through kind of gaussian algorhithm, first elemination of the under-part of the thriangle (aim is a[i]=0 for i=1...n) , 
@@ -75,20 +75,20 @@ int main(){
 
 
 	//first
-	for(int i=0;i<n+1;i++){
+	for(int i=0;i<n;i++){
 		b[i+1]=b[i+1]-c[i]*(a[i+1]/b[i]);
 		btilde[i+1]= btilde[i+1]-btilde[i]*(a[i+1]/b[i]);
 	}
 	//second
-	for(int i=n+1;i>0;i--){
-		btilde[i-1]+=-btilde[i]*(c[i-1]/b[i]);
+	for(int i=n-1;i>0;i--){
+		btilde[i-1]=btilde[i-1]-btilde[i]*(c[i-1]/b[i]);
 	}
 	//normalization
 
 	ofstream Zieldatei("Daten.txt");
-	for(int i=1;i<n+1;i++){
+	for(int i=0;i<n;i++){
 		btilde[i]=btilde[i]/b[i];	// normalization of the Koeficient (be careful, btilde is from now an not the original btilde)
-		Zieldatei << x[i]<<"  "<<btilde[i]<<"  "<<1-(1-exp(-10))*(h*i)-exp(-10*h*i)<<endl;
+		Zieldatei << x[i]<<"  "<<btilde[i]<<"  "<<1-(1-exp(-10))*(h*(i+1))-exp(-10*h*(i+1))<<endl;
 	}
 	Zieldatei.close();
 	finish = clock();
@@ -96,11 +96,11 @@ int main(){
     system("start gnuplot plot1.txt");
 
 	// Part c) of the Project 1
-	double *epsilon = new double[n+1];
+	double *epsilon = new double[n];
 	double maximum=0;
 	
 	// calculate the relative errors and find the maximum of all the points
-	for(int i=1;i<n+1;i++){
+	for(int i=0;i<n;i++){
 		epsilon[i]=log(abs((btilde[i]-u(i*h))/u(i*h)));
 		if(epsilon[i]>maximum){
 			maximum=epsilon[i];
