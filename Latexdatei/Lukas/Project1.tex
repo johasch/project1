@@ -129,10 +129,26 @@ for(int i=n;i>0;i--){
 }
 \end{lstlisting}
 	
-\subsection{Gaussian elemination}
+\subsection{Gaussian elimination}
 
 
 \subsection{LU-decomposition}
+
+In the LU-decompsition we factorize the matrix $\mathbf A$ as the product of a lower($\mathbf L$) and an upper($\mathbf{U}$) triangular matrix. As a consequence we get the following equation:
+
+\begin{equation}
+\mathbf{L \cdot U \cdot v = \bar{b}}
+\end{equation}
+
+If we say $\mathbf{U \cdot v = w}$, we get two systems of linear equations which need to be solved.
+
+\begin{gather}
+\mathbf{L \cdot w = \bar{b}} \\
+\mathbf{U \cdot v = w}
+\end{gather}
+
+While solving (14) and (15) only need $\sigma(n^2)$ flops, which is less compared to the gaussian elimination, factorising $\mathbf{A}$ as in (12) takes $\sigma(n^3)$ flops. In total the LU-decomposition does take to the power of two flops more than our algorithm. In our project it takes more flops than the gaussian elimination too.
+
 
 \section{Resuluts and discussion of the self-programmed algorithm}
 
