@@ -100,8 +100,8 @@ int main(){
 	double maximum=0;
 	
 	// calculate the relative errors and find the maximum of all the points
-	for(int i=0;i<n;i++){
-		epsilon[i]=log(abs((btilde[i]-u(i*h))/u(i*h)));
+	for(int i=1;i<n;i++){
+		epsilon[i]=abs((btilde[i]-u((i+1)*h))/u((i+1)*h));
 		if(epsilon[i]>maximum){
 			maximum=epsilon[i];
 		}
@@ -109,7 +109,7 @@ int main(){
 	//write the maximum of the relative error in a text-file
 	
 	ofstream Zieldatei1("maximumrelativeerror_grid_n.txt", ios::app);
-	Zieldatei1<<endl<<log(h)<<"  "<<log(maximum); //Gridpoints  "<<"epsilonmax"<<endl<<n<<"  "<<maximum;
+	Zieldatei1<<endl<<h<<"  "<<maximum; //Gridpoints  "<<"epsilonmax"<<endl<<n<<"  "<<maximum;
 	Zieldatei1.close();
 	delete [] a, b, c, x, v, btilde,epsilon;
 	}

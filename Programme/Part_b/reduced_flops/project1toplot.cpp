@@ -62,9 +62,7 @@ int main(){
 
 
 	for(int i=0;i<n;i++){ //filling up the vektors with the right number to solve the given linear sets of equation
-	  		a[i]=-1.0;
 	  	b[i]=2.0;
-	        c[i]=-1.0;
 		 x[i]=(i+1)*h;
 		btilde[i]=h*h*(100.0*exp(-10.0*x[i]));
 	}
@@ -111,5 +109,10 @@ int main(){
 	ofstream Zieldatei1("maximumrelativeerror_grid_n.txt", ios::app);
 	Zieldatei1<<endl<<log(h)<<"  "<<log(maximum); //Gridpoints  "<<"epsilonmax"<<endl<<n<<"  "<<maximum;
 	Zieldatei1.close();
+	
+	ofstream Zieldatei2("zeit.txt", ios::app);
+	Zieldatei2<<endl<<n<<"  "<<double ( (finish - start)/(double)CLOCKS_PER_SEC ); //Gridpoints  "<<"epsilonmax"<<endl<<n<<"  "<<maximum;
+	Zieldatei2.close();
+	
 	delete [] a, b, c, x, v, btilde,epsilon;
 	}

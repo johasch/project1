@@ -112,9 +112,9 @@ int main(){
 	Zieldatei1<<endl<<n<<"  "<<maximum<<"  "; //Gridpoints  "<<"epsilonmax"<<endl<<n<<"  "<<maximum;
 	Zieldatei1.close();
 	
-	ofstream Zieldatei1("toplot.txt", ios::app);
-	Zieldatei1<<endl<<log(h)<<"  "<<log(maximum)<<"  "<<double ( (finish - start)/(double)CLOCKS_PER_SEC ); //Gridpoints  "<<"epsilonmax"<<endl<<n<<"  "<<maximum;
-	Zieldatei1.close();
+	ofstream Zieldatei2("toplot.txt", ios::app);
+	Zieldatei2<<endl<<log(h)<<"  "<<log(maximum)<<"  "<<double ( (finish - start)/(double)CLOCKS_PER_SEC ); //Gridpoints  "<<"epsilonmax"<<endl<<n<<"  "<<maximum;
+	Zieldatei2.close();
 	delete [] a, b, c, x, v, btilde,epsilon;
 	}
 
